@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+    <title>Fibroline</title>
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    
+    <link rel="stylesheet" href="lib/touch/resources/css/sencha-touch.css" type="text/css">
+    <link rel="stylesheet" href="public/resources/css/application.css" type="text/css">
+	  
+	  <!-- Sencha Touch framework -->
+	  <!--<link rel="stylesheet" type="text/css" href="resources/css/application.css" />
+	  <script type="text/javascript" src="lib/touch/sencha-touch.js"></script>-->
+</head>
+	
+<body>
+	<script type="text/javascript" src="lib/touch/sencha-touch-debug.js"></script>
+    <script type="text/javascript" src="lib/touch/pkgs/platform/mvc.js"></script>
+    
+    <div id="sencha-app">
+        <script type="text/javascript" src="app/routes.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+        
+        <!-- Place your view files here -->
+        <div id="sencha-views">
+        	<script src="app/views/Viewport.js"></script>
+	  		<script src="app/views/contact/ContactListPanel.js"></script>
+	  		<script src="app/views/contact/ContactForm.js"></script>
+	  		<script src="app/views/contact/ContactDetails.js"></script>
+	  
+	 	 	<script src="app/views/navigation.js"></script>
+	  	    <script src="app/views/home.js"></script>
+	 		<script src="app/views/first.js"></script>
+	  		<script src="app/views/second.js"></script>
+        </div>
+        
+        <!-- Place your model files here -->
+        <div id="sencha-models">
+            <script src="app/models/Contact.js"></script>
+			<script src="app/models/some-model.js"></script>
+        </div>
+        
+        <!-- Place your controller files here -->
+        <div id="sencha-controllers">
+            <script src="app/controllers/navigation.js"></script>
+		    <script src="app/controllers/Contact.js"></script>
+	  		<script src="app/controllers/home.js"></script>
+	  		<script src="app/controllers/first.js"></script>
+	  		<script src="app/controllers/second.js"></script>
+        </div>
+        
+        <div id="sencha-stores">
+	  		<script src="app/stores/some-store.js"></script>
+		</div>
+   
+    </div>	
+</body>
+</html>
