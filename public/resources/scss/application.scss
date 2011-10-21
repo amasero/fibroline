@@ -1,12 +1,12 @@
 // 1. Variable overrides, example:
 // $base-color: #af2584;
  
-$base-color: #8c2c00;
-$list-header-bg-color: #caa75e;
+//$base-color: #8c2c00;
+//$list-header-bg-color: #caa75e;
 
-strong {
-  font-weight: bold;
-} 
+//strong {
+//  font-weight: bold;
+//} 
 
 // 2. Include Sencha Touch styles
 @import 'sencha-touch/default/all';
@@ -28,3 +28,9 @@ strong {
 // .mybox {
 //     @include border-radius(4px);
 // }
+
+
+@include pictos-iconmask('event_complete');
+@include pictos-iconmask('compose2');
+@include pictos-iconmask('chart2');
+@include pictos-iconmask('settings6');

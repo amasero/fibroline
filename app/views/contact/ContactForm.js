@@ -1,8 +1,9 @@
+Ext.namespace('fibroline.views.contact');  
 /**
  * 
  */
 
-FibroBone.views.ContactForm = Ext.extend(Ext.form.FormPanel, {
+fibroline.views.contact.ContactForm = Ext.extend(Ext.form.FormPanel, {
 	initComponent: function() {
 		
 		this.items = [{
@@ -43,9 +44,9 @@ FibroBone.views.ContactForm = Ext.extend(Ext.form.FormPanel, {
     		}]
     	};
 		
-		FibroBone.views.ContactForm.superclass.initComponent.apply(this, arguments);
+		fibroline.views.contact.ContactForm.superclass.initComponent.apply(this, arguments);
     }
 });
 
-Ext.reg('contact-form', FibroBone.views.ContactForm);
+Ext.reg('fibroline.views.contact.ContactForm', fibroline.views.contact.ContactForm);
   

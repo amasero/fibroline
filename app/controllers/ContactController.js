@@ -1,27 +1,29 @@
-FibroBone.controllers.Contact = Ext.regController('Contact', {
-  
-  index: function() {
-	  if (!this.listPanel) {
-		  this.listPanel = this.render ({
-			  xtype: 'contact-listpanel',
+Ext.regController('fibroline.controllers.contactController', {
+	model     : null,
+	indexView : null,
+	
+	index: function() {
+		if (!this.indexView) {
+		  this.indexView = this.render ({
+			  xtype: 'fibroline.views.contact.ContactListPanel',
 			  listeners: {
 				  list: {
 					  select: this.show,
 					  scope: this
 				  },
 				  active: function(listPanel) {
-					  listPanel.list.getSelectionModel().deselectAll();
+					  this.indexView.list.getSelectionModel().deselectAll();
 				  }
 			  }
 	  	   });
-		  this.listPanel.query('#addButton')[0].on({
+		  this.indexView.query('#addButton')[0].on({
 			  tap: this.compose,
 			  scope: this
 		  })
-		  this.application.viewport.setActiveItem(this.listPanel);
+		  this.application.setCurrentView(this, this.indexView);
 	  } else {
-		  this.listPanel.store.sort();
-		  this.application.viewport.setActiveItem(this.listPanel,{
+		  this.indexView.store.sort();
+		  this.application.setCurrentView(this, this.indexView,{
 			  type: 'slide',
 			  direction: 'right'
 		  });
@@ -30,9 +32,8 @@ FibroBone.controllers.Contact = Ext.regController('Contact', {
   
   show: function(list, record) {
 	  var details = this.render({
-		 xtype: 'contact-details',
+		 xtype: 'fibroline.views.contact.ContactDetails',
 		 data: record.data,
-		 // title: record.get('firstName') + ' ' + record.get('lastName'),
 	  	 listeners: {
 	  		 deactive: function(details) {
 	  			 details.destroy();
@@ -43,7 +44,7 @@ FibroBone.controllers.Contact = Ext.regController('Contact', {
 		  tap: this.index,
 		  scope: this
 	  })
-	  this.application.viewport.setActiveItem(details,{
+	  this.application.setCurrentView(this, details,{
 		  type: 'slide',
 		  direction: 'left'
 	  });
@@ -51,7 +52,7 @@ FibroBone.controllers.Contact = Ext.regController('Contact', {
   
   compose: function() {
 	  this.form =  this.render({
-		  xtype: 'contact-form',
+		  xtype: 'fibroline.views.contact.ContactForm',
 		  listeners: {
 			  deactive: function(form) {
 				  form.destroy();
@@ -69,14 +70,15 @@ FibroBone.controllers.Contact = Ext.regController('Contact', {
 		  scope: this
 	  })
 	  
-	  this.application.viewport.setActiveItem(this.form,{
+	  this.application.setCurrentView(this, this.form,{
 		  type: 'slide',
 		  direction: 'left'
 	  });
   },
   
   create: function() {
-	  this.listPanel.store.create(this.form.getValues());
+	  this.indexView.store.create(this.form.getValues());
 	  this.index();
   }
+  
 });

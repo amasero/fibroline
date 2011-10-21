@@ -1,8 +1,10 @@
+Ext.namespace('fibroline.views.contact'); 
+
 /**
  * 
  */
 
-FibroBone.views.ContactDetails = Ext.extend(Ext.Panel, {
+fibroline.views.contact.ContactDetails = Ext.extend(Ext.Panel, {
 	tpl: '<h2>{firstName} {lastName}</h2><p><a href="mailto:{email}">{email}</a></p>',
 	styleHtmlContent: true,
 	
@@ -19,9 +21,9 @@ FibroBone.views.ContactDetails = Ext.extend(Ext.Panel, {
     		}
     	};
 		
-		FibroBone.views.ContactDetails.superclass.initComponent.apply(this, arguments);
+		fibroline.views.contact.ContactDetails.superclass.initComponent.apply(this, arguments);
     }
 });
 
-Ext.reg('contact-details', FibroBone.views.ContactDetails);
+Ext.reg('fibroline.views.contact.ContactDetails', fibroline.views.contact.ContactDetails);
   

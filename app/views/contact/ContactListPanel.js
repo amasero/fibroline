@@ -1,17 +1,19 @@
+Ext.namespace('fibroline.views.contact'); 
+
 /**
  * 
  */
 
-FibroBone.views.ContactListPanel = Ext.extend(Ext.Panel, {
-	layout: 'fit',
+fibroline.views.contact.ContactListPanel = Ext.extend(Ext.Panel, {
+	layout: 'card',
     
     initComponent: function() {
     	this.store = new Ext.data.Store({
     		autoLoad: true,
-    		model: 'FibroBone.models.Contact',
+    		model: 'fibroline.models.Contact',
     		sorters: ['lastName'],
     		getGroupString: function(record) {
-    			return record.get('lastName')[0];
+    			return record.get('lastName')[0] + ' ';
     		}
     	});
     	
@@ -19,20 +21,6 @@ FibroBone.views.ContactListPanel = Ext.extend(Ext.Panel, {
     		xtype: 'toolbar',
     		dock: 'top',
     		title: 'Contacts',
-    		items: [
-    		        {xtype: 'spacer'},
-    		        {
-    		        	itemId: 'addButton',
-    		        	iconCls: 'add',
-    		        	iconMask: true,
-    		        	ui: 'plain',
-    		        	handler: this.onAddTap,
-    		        	scope: this
-    		        }
-    		]
-    	}, {
-    		xtype: 'toolbar',
-    		dock: 'bottom',
     		items: [
     		        {xtype: 'spacer'},
     		        {
@@ -55,9 +43,9 @@ FibroBone.views.ContactListPanel = Ext.extend(Ext.Panel, {
     	
     	this.items = [this.list];
     	
-    	FibroBone.views.ContactListPanel.superclass.initComponent.apply(this, arguments);
+    	fibroline.views.contact.ContactListPanel.superclass.initComponent.apply(this, arguments);
     }
 });
 
-Ext.reg('contact-listpanel', FibroBone.views.ContactListPanel);
+Ext.reg('fibroline.views.contact.ContactListPanel', fibroline.views.contact.ContactListPanel);
   

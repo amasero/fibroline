@@ -1,5 +1,5 @@
 
-FibroBone.models.Contact = Ext.regModel('FibroBone.models.Contact', {
+fibroline.models.Contact = Ext.regModel('fibroline.models.Contact', {
 	fields: [
 	         { name: "id", type:"int"},
 	         { name: "firstName", type:"string"},
